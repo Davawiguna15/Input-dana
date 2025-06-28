@@ -1,159 +1,136 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Form Pendaftaran Lomba</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Input Dana Lomba 17 Agustus 2025 RT04/RW14</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      padding: 20px;
-      max-width: 600px;
+      padding: 1rem;
+      background-color: #f7f7f7;
+    }
+    h2 {
+      text-align: center;
+    }
+    form {
+      max-width: 500px;
       margin: auto;
+      background-color: white;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 0.6rem;
+      margin-top: 0.3rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #28a745;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 1.5rem;
+    }
+    button:hover {
+      background-color: #218838;
     }
     .hidden {
       display: none;
     }
-    .form-section {
-      margin-bottom: 20px;
-    }
-    label {
-      display: block;
-      margin-top: 10px;
-    }
-    select, input[type="text"], input[type="number"], input[type="tel"] {
-      width: 100%;
-      padding: 8px;
-      margin-top: 5px;
-      box-sizing: border-box;
-    }
-    button {
-      padding: 10px 20px;
-      margin-top: 20px;
-      background-color: #007BFF;
-      color: white;
-      border: none;
-      cursor: pointer;
-      border-radius: 4px;
-    }
-    button:hover {
-      background-color: #0056b3;
-    }
   </style>
 </head>
 <body>
+  <h2>Input Dana Lomba 17 Agustus 2025 RT04/RW14</h2>
+  <form id="danaForm">
+    <label for="tanggal">Tanggal</label>
+    <input type="date" id="tanggal" name="tanggal" required>
 
-  <div id="home-section">
-    <h1>Selamat Datang di Pendaftaran Lomba</h1>
-    <button onclick="startForm()">Mulai Pendaftaran</button>
-  </div>
+    <label for="tipeDana">Jenis Dana</label>
+    <select id="tipeDana" name="tipeDana" required>
+      <option value="">-- Pilih --</option>
+      <option value="Pemasukan">Pemasukan (Penarikan Dana)</option>
+      <option value="Pengeluaran">Pengeluaran</option>
+    </select>
 
-  <form id="registration-form" class="hidden">
-    <div class="form-section">
-      <label for="nama">Nama Lengkap Peserta:</label>
-      <input type="text" name="nama" id="nama" required />
-
-      <label for="usia">Usia Peserta Lomba:</label>
-      <input type="number" name="usia" id="usia" required min="1" />
-
-      <label for="hp">Nomor HP Orang Tua / Peserta:</label>
-      <input type="tel" name="hp" id="hp" required />
-
-      <label for="buni">Dari Buni Berapa Peserta:</label>
-      <select name="buni" id="buni" required>
-        <option value="">--Pilih--</option>
-        <option>Buni Raya</option>
-        <option>Buni 1</option>
-        <option>Buni 2</option>
-        <option>Buni 3</option>
-        <option>Buni 4</option>
-        <option>Buni 5</option>
+    <div id="pemasukanFields" class="hidden">
+      <label for="sumberDana">Sumber Dana</label>
+      <select id="sumberDana" name="sumberDana">
+        <option value="">-- Pilih --</option>
+        <option value="Donatur">Donatur</option>
+        <option value="Buni Raya">Buni Raya</option>
+        <option value="Buni 1">Buni 1</option>
+        <option value="Buni 2">Buni 2</option>
+        <option value="Buni 3">Buni 3</option>
+        <option value="Buni 4">Buni 4</option>
+        <option value="Buni 5">Buni 5</option>
       </select>
 
-      <label for="lomba_3_5">Lomba untuk usia (3-5 tahun):</label>
-      <select name="lomba_3_5" id="lomba_3_5">
-        <option value="">--Pilih Kelas--</option>
-        <option>Kelas A</option>
-        <option>Kelas B</option>
-        <option>Kelas C</option>
-      </select>
-
-      <label for="lomba_6_8">Lomba untuk usia (6-8 tahun):</label>
-      <select name="lomba_6_8" id="lomba_6_8">
-        <option value="">--Pilih Kelas--</option>
-        <option>Kelas A</option>
-        <option>Kelas B</option>
-        <option>Kelas C</option>
-      </select>
-
-      <label for="lomba_9_11">Lomba untuk usia (9-11 tahun):</label>
-      <select name="lomba_9_11" id="lomba_9_11">
-        <option value="">--Pilih Kelas--</option>
-        <option>Kelas A</option>
-        <option>Kelas B</option>
-        <option>Kelas C</option>
-      </select>
-
-      <label for="lomba_bapak">Lomba untuk Bapak-Bapak:</label>
-      <select name="lomba_bapak" id="lomba_bapak">
-        <option value="">--Pilih Kelas--</option>
-        <option>Kelas A</option>
-        <option>Kelas B</option>
-        <option>Kelas C</option>
-      </select>
-
-      <label for="lomba_ibu">Lomba untuk Ibu-Ibu:</label>
-      <select name="lomba_ibu" id="lomba_ibu">
-        <option value="">--Pilih Kelas--</option>
-        <option>Kelas A</option>
-        <option>Kelas B</option>
-        <option>Kelas C</option>
-      </select>
-
-      <button type="submit">Kirim</button>
+      <label for="nominalPemasukan">Nominal Pemasukan</label>
+      <input type="number" id="nominalPemasukan" name="nominalPemasukan" placeholder="Contoh: 200000">
     </div>
+
+    <div id="pengeluaranFields" class="hidden">
+      <label for="keteranganPengeluaran">Untuk Apa Pengeluaran?</label>
+      <input type="text" id="keteranganPengeluaran" name="keteranganPengeluaran">
+
+      <label for="qtyPengeluaran">Qty (Jumlah)</label>
+      <input type="text" id="qtyPengeluaran" name="qtyPengeluaran" placeholder="Contoh: 10pcs / 10pack">
+
+      <label for="nominalPengeluaran">Nominal Pengeluaran</label>
+      <input type="number" id="nominalPengeluaran" name="nominalPengeluaran" placeholder="Contoh: 200000">
+    </div>
+
+    <button type="submit">Submit Data</button>
   </form>
 
-  <div id="thankyou-section" class="hidden">
-    <h2>Terima kasih telah mendaftar!</h2>
-    <p>Kami tunggu kedatangan kalian.</p>
-  </div>
-
   <script>
-    const scriptURL = "https://script.google.com/macros/s/AKfycbzvO_8qhjQfzfTWtImz53ee7veDuIJPeI1GAhvKBi4o6uBp7vbsfN5ALFoiEav_HXTD/exec";
+    const tipeDana = document.getElementById('tipeDana');
+    const pemasukanFields = document.getElementById('pemasukanFields');
+    const pengeluaranFields = document.getElementById('pengeluaranFields');
 
-    function startForm() {
-      document.getElementById('home-section').classList.add('hidden');
-      document.getElementById('registration-form').classList.remove('hidden');
-    }
+    tipeDana.addEventListener('change', function() {
+      pemasukanFields.classList.toggle('hidden', this.value !== 'Pemasukan');
+      pengeluaranFields.classList.toggle('hidden', this.value !== 'Pengeluaran');
+    });
 
-    const form = document.getElementById('registration-form');
-    form.addEventListener('submit', e => {
+    document.getElementById('danaForm').addEventListener('submit', async function(e) {
       e.preventDefault();
-      const formData = new FormData(form);
-      const data = {};
-      formData.forEach((value, key) => {
-        data[key] = value;
-      });
+      
+      const data = {
+        tanggal: document.getElementById('tanggal').value,
+        tipeDana: tipeDana.value,
+        sumberDana: document.getElementById('sumberDana').value || '',
+        nominalPemasukan: document.getElementById('nominalPemasukan').value || '',
+        keteranganPengeluaran: document.getElementById('keteranganPengeluaran').value || '',
+        qtyPengeluaran: document.getElementById('qtyPengeluaran').value || '',
+        nominalPengeluaran: document.getElementById('nominalPengeluaran').value || ''
+      };
 
-      fetch(scriptURL, {
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-      .then(response => {
-        form.reset();
-        form.classList.add('hidden');
-        document.getElementById('thankyou-section').classList.remove('hidden');
-      })
-      .catch(error => {
-        alert('Gagal mengirim data. Coba lagi.');
-        console.error('Error!', error.message);
-      });
+      try {
+        const res = await fetch('https://script.google.com/macros/s/AKfycbxjI_IjTeKmVmgwLdFY5Lgz_w36RyvQjxBmurDc6TCGIr8Zs3Ap57hu-TfN9nTCAW8o/exec', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        const result = await res.json();
+        alert('Data berhasil dikirim!');
+        document.getElementById('danaForm').reset();
+        pemasukanFields.classList.add('hidden');
+        pengeluaranFields.classList.add('hidden');
+      } catch (err) {
+        alert('Terjadi kesalahan saat mengirim data!');
+        console.error(err);
+      }
     });
   </script>
-
 </body>
 </html>
